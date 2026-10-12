@@ -1,0 +1,111 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #f4f3f8;
+  --card-bg: #ffffff;
+  --border: #e5e4e7;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --card-bg: #1f2028;
+    --border: #2e303a;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Card */
+.card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-top: 6px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 28px 32px 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.card h2 {
+  margin: 0 0 20px;
+  padding-bottom: 14px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text-h);
+  border-bottom: 2px solid var(--accent-bg);
+}
+
+/* Each row: label on left, value on right */
+.card p {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.card p:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.label::after {
+  content: ' :';
+}
+
+.value {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 22px 20px 14px;
+  }
+  .card p {
+    grid-template-columns: 120px 1fr;
+  }
+}
